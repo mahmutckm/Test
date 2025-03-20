@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Kartı</title>
+    <style>
+        /* Google Font - Daha Modern Bir Yazı Tipi Kullanıyoruz */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Genel Stil Ayarları */
+        body {
+            display: flex; /* Sayfa ortasında ürün kutusunu hizalamak için */
+            justify-content: center; /* Yatayda ortalar */
+            align-items: center; /* Dikeyde ortalar */
+            height: 100vh; /* Sayfanın tamamını kaplamasını sağlıyor */
+            background-color: #f5f5f5; /* Arka plan rengini biraz daha yumuşak yapıyor */
+            font-family: 'Poppins', sans-serif; /* Daha modern bir yazı tipi */
+        }
+
+        /* Ürün Kartı */
+        .product-box {
+            background: #fff; /* Beyaz bir arka plan rengi */
+            margin: 20px; /* Kenar boşlukları */
+            border-radius: 0px; /* Kenarları yuvarlatıyoruz */
+            padding: 20px; /* İç boşluk */
+            width: 320px; /* Kartın genişliği */
+            display: flex; /* İçindeki öğeleri dikey hizalamak için flex kullanıyoruz */
+            flex-direction: column; /* Öğeler dikey olarak hizalanır */
+            align-items: center; /* Öğeleri yatayda ortalar */
+            box-shadow: -4px 6px 37px 3px rgba(0,0,0,0.75); /* Hafif gölgelendirme */
+            position: relative; /* İçinde pozisyonlandırılmış öğeler için referans noktası */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Hover efekti için animasyon */
+        }
+
+        /* Hover Efekti - Kartın Hafifçe Yükselmesi */
+        .product-box:hover {
+            transform: translateY(-10px); /* Ürün kartı hover edildiğinde yukarı kalkar */
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2); /* Gölge biraz daha belirginleşir */
+        }
+
+        /* Ürün Resmi */
+        .product-box > img {
+            width: 90%; /* Resmin genişliğini kutunun içeriğine göre ayarlıyoruz */
+            border-radius: 10px; /* Kenarları biraz yuvarlatıyoruz */
+            transition: transform 0.3s ease-in-out; /* Hover animasyonu */
+        }
+
+        /* Hover’da Resmin Biraz Büyümesi */
+        .product-box:hover > img {
+            transform: scale(1.05); /* Hover olduğunda biraz büyütüyoruz */
+        }
+
+        /* Ürün Başlığı */
+        .product-box > h5 {
+            font-size: 22px; /* Başlık yazı boyutu */
+            margin-bottom: 5px; /* Alt boşluk */
+            color: #333; /* Yazı rengi */
+            font-weight: 600; /* Kalın yazı */
+        }
+
+        /* Açıklama */
+        .product-box > p {
+            font-size: 14px; /* Yazı boyutu */
+            color: #888; /* Açıklama için daha soluk bir renk */
+            text-align: center; /* Yazıyı ortalıyoruz */
+            margin: 5px 0 15px 0; /* Üst ve alt boşluklar */
+        }
+
+        /* Fiyat Etiketi */
+        .price {
+            display: flex; /* İçeriği hizalamak için flex kullanıldı */
+            justify-content: center; /* İçeriği ortalıyoruz */
+            text-align: center; /* İçeriği ortalıyoruz */
+            align-items: center; /* Dikeyde de ortalıyoruz */
+            font-size: 22px; /* Yazı boyutu */
+            font-weight: 700; /* Kalın font */
+            color: #ff0000; /* Yazı rengi */
+            /*background: #fff5f0; /* Arka plan rengi */
+            padding: 8px 16px; /* İç boşluk */
+            border-radius: 8px; /* Kenar yuvarlaklığı */
+            /*box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1); /* Hafif iç gölge efekti */
+            min-width: 120px; /* Genişliği sabit tutarak düzgün hizalanmasını sağlıyoruz */
+            text-align: center; /* İçeriği ortalıyoruz */
+            margin-left: 11%;
+            
+        }
+
+        /* Sepete Ekle Butonu */
+        .add-basket > a {
+            background-color: #e41409; /* Arka plan rengi */
+            color: white; /* Yazı rengi */
+            text-decoration: none; /* Link altı çizgiyi kaldırıyoruz */
+            padding: 0px 0px 0px 0px; /* İç boşluk */
+            border-radius: 0px; /* Kenar yuvarlaklığı */
+            font-size: 16px; /* Yazı boyutu */
+            font-weight: 600; /* Kalın yazı */
+            transition: background 0.3s ease-in-out; /* Hover efekti */
+            display: flex; /* İçeriği hizalamak için flex kullanıldı */
+            justify-content: center; /* Yazıyı ortalıyoruz */
+            width: 100%; /* Genişliği kartın içine tam oturtuyoruz */
+            box-shadow: 0px 4px 10px rgba(227, 84, 13, 0.3); /* Hafif gölge efekti */
+            flex-direction: column;
+
+            
+            margin: 0px 0px 0px 0px;
+            width: 310px;
+        }
+
+        /* Buton Hover Efekti */
+        .add-basket > a:hover {
+            background-color: #c03c0a; /* Hover olduğunda rengi değiştiriyoruz */
+        }
+       /* https://fontawesome.com/search?q=star&o=r*/
+    </style>
+</head>
+<body>
+    <div class="product-box">
+        <img src="puma.png">
+        <h5>GARNIER</h5>
+        <p>Garnier Pure Active Micellar Cleansing Water. 125 ml</p>
+        <div class="price">
+            <span>$60</span>
+        </div>
+        <div class="add-basket"> 
+            <a href="#">ADD TO CART</a>
+        </div>
+    </div>
+</body>
+</html>
